@@ -1,0 +1,164 @@
+.totals-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: #fff;
+}
+
+.row-seq {
+  width: 36px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #6c757d;
+  flex-shrink: 0;
+}
+
+.row-name {
+  flex: 1;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.row-value {
+  min-width: 48px;
+  font-weight: 700;
+  text-align: right;
+  color: #212529;
+}
+
+.row-value.is-empty {
+  color: #6c757d;
+}
+
+.loc-section {
+  margin-bottom: 1rem;
+}
+
+.loc-header {
+  position: sticky;
+  top: 132px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background-color: #212529;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.loc-title {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.loc-count {
+  margin-left: auto;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #fff;
+}
+
+.item-card {
+  background-color: #fff;
+  border-radius: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-body {
+  padding: 1rem;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.item-title {
+  font-weight: 700;
+}
+
+.item-seq {
+  color: #6c757d;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.item-pack {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.item-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field-group {
+  flex: 1;
+}
+
+.on-hand-group {
+  flex: 0 0 auto;
+  min-width: 76px;
+  text-align: right;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.field-separator {
+  color: #6c757d;
+  font-weight: 600;
+  padding-top: 1.25rem;
+}
+
+.input-count {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+}
+
+.badge-onhand {
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 1.05rem;
+  min-width: 56px;
+}
+
+.badge-onhand.is-counted {
+  background-color: #d1e7dd;
+  color: #198754;
+}
+
+.badge-onhand.is-pending {
+  background-color: #f8d7da;
+  color: #dc3545;
+}
+
+.item-formula {
+  border-top: 1px solid #dee2e6;
+  padding-top: 0.5rem;
+  margin-top: 0.75rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}

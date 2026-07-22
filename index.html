@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Count</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light text-dark pb-5">
+
+<div class="container-sm px-3" style="max-width: 720px;">
+
+  <header class="sticky-top bg-body px-3 pt-4 pb-3 border-bottom">
+    <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+      <!-- Left Aligned: Help Button -->
+      <button class="btn btn-sm btn-primary fw-semibold text-nowrap" id="helpBtn" data-bs-toggle="modal" data-bs-target="#helpModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+        </svg> Help
+      </button>
+
+      <!-- Right Aligned: Action Buttons -->
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-sm btn-outline-secondary fw-semibold text-nowrap" id="csvBtn" data-bs-toggle="modal" data-bs-target="#csvModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+          </svg> Download CSV
+        </button>
+        <button class="btn btn-sm btn-outline-danger fw-semibold text-nowrap" id="resetBtn" data-bs-toggle="modal" data-bs-target="#resetModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708"/>
+          </svg> Reset
+        </button>
+        <a href="totals.html" class="btn btn-sm btn-dark fw-semibold text-nowrap">Totals →</a>
+      </div>
+    </div>
+  
+    <h1 class="fw-bold h2 mb-3">Monthly Count Page</h1>
+
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <div class="progress flex-fill" style="height: 8px;" role="progressbar" aria-label="Items counted" aria-valuenow="0" aria-valuemin="0" aria-valuemax="63">
+        <div class="progress-bar bg-warning" id="progressFill" style="width: 0%"></div>
+      </div>
+      <span class="text-body-secondary small fw-semibold text-nowrap" id="progressLabel">0 / 0 counted</span>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text bg-body">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-body-secondary">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+        </svg>
+      </span>
+      <input id="searchInput" type="text" class="form-control" placeholder="Search item…" autocomplete="off">
+    </div>
+  </header>
+
+  <main class="pt-3">
+    <div id="list"></div>
+    <p class="text-center text-body-secondary py-4" id="emptyNote" style="display: none;">No items match your search.</p>
+  </main>
+
+</div>
+
+<div class="position-fixed start-50 translate-middle-x bg-dark text-white rounded px-3 py-2 text-nowrap small fw-medium" id="toast" style="bottom: 76px; z-index: 1050; display: none;"></div>
+
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="helpModalLabel">Count Sheet Instructions</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body small">
+        <ul class="mb-0 ps-3">
+          <li class="mb-2"><strong>Entering Counts:</strong> Enter full case quantities under <em>Case</em> and individual items under <em>Loose</em>. The <em>On Hand</em> total calculates automatically based on the item pack size.</li>
+          <li class="mb-2"><strong>Search:</strong> Use the search bar to filter by item name or sequence number.</li>
+          <li class="mb-2"><strong>POS Key-In:</strong> Click <strong>Totals →</strong> to view all counts ordered in POS sequence for fast entry or printing.</li>
+          <li class="mb-2"><strong>Exporting:</strong> Click <strong>Download CSV</strong> to save a local spreadsheet file of your completed inventory count.</li>
+          <li><strong>Resetting:</strong> Click <strong>Reset</strong> to clear all counts for a new sheet.</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-dark" data-bs-dismiss="modal">Got it</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="csvModal" tabindex="-1" aria-labelledby="csvModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="csvModalLabel">Export Inventory CSV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Download the current inventory count as a CSV file?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirmCsvBtn">Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="resetModalLabel">Reset Count Sheet</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Clear all counts for a fresh count sheet? This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmResetBtn">Reset Counts</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/items.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

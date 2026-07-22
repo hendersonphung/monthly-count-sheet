@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totals — Monthly Count</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body class="bg-light text-dark pb-5">
+
+<div class="container-sm px-3" style="max-width: 720px;">
+
+  <header class="sticky-top bg-body px-3 pt-4 pb-3 border-bottom">
+    <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+      <a href="index.html" class="btn btn-sm btn-dark rounded fw-bold text-nowrap">← Count</a>
+
+      <button class="btn btn-sm btn-primary fw-semibold text-nowrap" id="printBtn">
+        Print <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+          <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+          <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+        </svg>
+      </button>
+    </div>
+
+    <h1 class="fw-bold h2 mb-3">POS Key-In / Totals</h1>
+    <div class="d-flex align-items-center gap-2">
+      <div class="progress flex-fill" style="height: 8px;" role="progressbar" aria-label="Items keyed in" aria-valuenow="0" aria-valuemin="0" aria-valuemax="63">
+        <div class="progress-bar bg-warning" id="progressFill" style="width: 0%"></div>
+      </div>
+      <span class="text-body-secondary small fw-semibold text-nowrap" id="progressLabel">0 / 0 keyed in</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+      <p class="text-body-secondary small mb-3">Listed in POS sequence order.</p>
+    </div>
+
+  </header>
+
+  <div id="printTimestamp" class="print-only-header"></div>
+
+  <main class="pt-3">
+    <div class="d-flex align-items-center gap-3 py-1 text-uppercase text-body-secondary small fw-semibold">
+      <span class="text-left" style="width: 36px;">Seq</span>
+      <span class="flex-fill">Item</span>
+      <span class="text-end" style="min-width: 80px;">On hand</span>
+    </div>
+    <div id="totalsList"></div>
+  </main>
+
+</div>
+
+<div class="position-fixed start-50 translate-middle-x bg-dark text-white rounded-pill px-3 py-2 text-nowrap small fw-medium shadow" id="toast" style="bottom: 76px; z-index: 1050; display: none;"></div>
+
+<script src="js/items.js"></script>
+<script src="js/shared.js"></script>
+<script src="js/totals.js"></script>
+</body>
+</html>
