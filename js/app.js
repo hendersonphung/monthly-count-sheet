@@ -129,7 +129,7 @@ function render(){
         </svg>
         <span class="loc-title fw-bold">${loc}</span>
       </div>
-      <span class="loc-count badge bg-secondary-subtle text-secondary-emphasis">${locCounted}/${locTotal}</span>
+      <span class="loc-count badge">${locCounted}/${locTotal}</span>
     `;
 
     header.addEventListener('click', () => {
