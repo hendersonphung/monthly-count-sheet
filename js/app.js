@@ -42,7 +42,7 @@ function injectModals() {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="confirmCsvBtn">Download</button>
+            <button type="button" class="btn btn-success" id="confirmCsvBtn">Download</button>
           </div>
         </div>
       </div>
