@@ -13,7 +13,6 @@
 
   <header class="sticky-top bg-body px-3 pt-4 pb-3 border-bottom">
     <div class="d-flex justify-content-between align-items-center w-100 mb-2">
-      <!-- Left Aligned: Help Button -->
       <button class="btn btn-sm btn-primary fw-semibold text-nowrap" id="helpBtn" data-bs-toggle="modal" data-bs-target="#helpModal">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -21,7 +20,6 @@
         </svg> Help
       </button>
 
-      <!-- Right Aligned: Action Buttons -->
       <div class="d-flex align-items-center gap-2">
         <button class="btn btn-sm btn-outline-secondary fw-semibold text-nowrap" id="csvBtn" data-bs-toggle="modal" data-bs-target="#csvModal">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -66,64 +64,7 @@
 
 <div class="position-fixed start-50 translate-middle-x bg-dark text-white rounded px-3 py-2 text-nowrap small fw-medium" id="toast" style="bottom: 76px; z-index: 1050; display: none;"></div>
 
-<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="helpModalLabel">Count Sheet Instructions</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body small">
-        <ul class="mb-0 ps-3">
-          <li class="mb-2"><strong>Entering Counts:</strong> Enter full case quantities under <em>Case</em> and individual items under <em>Loose</em>. The <em>On Hand</em> total calculates automatically based on the item pack size.</li>
-          <li class="mb-2"><strong>Search:</strong> Use the search bar to filter by item name or sequence number.</li>
-          <li class="mb-2"><strong>POS Key-In:</strong> Click <strong>Totals →</strong> to view all counts ordered in POS sequence for fast entry or printing.</li>
-          <li class="mb-2"><strong>Exporting:</strong> Click <strong>Download CSV</strong> to save a local spreadsheet file of your completed inventory count.</li>
-          <li><strong>Resetting:</strong> Click <strong>Reset</strong> to clear all counts for a new sheet.</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-dark" data-bs-dismiss="modal">Got it</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="csvModal" tabindex="-1" aria-labelledby="csvModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="csvModalLabel">Export Inventory CSV</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Download the current inventory count as a CSV file?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="confirmCsvBtn">Download</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="resetModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="resetModalLabel">Reset Count Sheet</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Clear all counts for a fresh count sheet? This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmResetBtn">Reset Counts</button>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="modalContainer"></div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/items.js"></script>
